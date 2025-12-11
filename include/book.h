@@ -9,7 +9,7 @@ protected:
     // 是否被借出
     bool is_borrowed = false;
 public:
-    book(std::string t);
+    book(std::string t, bool b = false);
     ~book();
     // 获取书名
     std::string get_title() const;

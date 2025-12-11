@@ -18,9 +18,9 @@ public:
     // 获取读者姓名
     std::string get_name() const;
     // 借阅书籍
-    bool borrow_book(book* b);
+    bool borrow_book(book* b = nullptr);
     // 归还书籍
-    bool return_book(book* b);
+    bool return_book(book* b = nullptr);
     // 打印读者信息
     void print_info() const;
 };
