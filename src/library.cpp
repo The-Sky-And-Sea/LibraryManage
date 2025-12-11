@@ -26,6 +26,7 @@ reader* library::find_reader(const std::string& reader_name) const {
     }
     return nullptr;
 }
+
 book* library::find_book(const std::string& book_title) const {
     // 查找馆藏，如果有返回对应指针，否则返回nullptr
     for (auto& b : books) {
@@ -43,12 +44,13 @@ bool library::borrowbook(const std::string& reader_name, const std::string& book
     if (r && b) {
         if (!b->check_borrowed())
         {
-            return r->borrow_book(b);
             // 将书籍状态设为已借出
             b->set_borrowed(true);
+            r->borrow_book(b);
+            return true;
         }
         else {
-            std::cout << "书籍《" << book_title << "》已被借出，无法借阅。" << std::endl;
+            std::cout << "book: " << book_title << ", is borrowed" << std::endl;
             return false;
         }
         
@@ -61,22 +63,23 @@ bool library::returnbook(const std::string& reader_name, const std::string& book
     book* b = find_book(book_title);
     // 只有当读者和书籍都存在且书籍已被借出时，才能归还
     if (r && b && b->check_borrowed()) {
-        return r->return_book(b);
         b->set_borrowed(false);
+        return true;
+        
     }
     return false;
 }
 
 void library::print_info() const {
-    std::cout << "图书馆名称: " << library_name << std::endl;
-    std::cout << "馆藏书籍列表:" << std::endl;
+    std::cout << "library name: " << library_name << std::endl << std::endl;
+    std::cout << "book list: " << std::endl;
     for (const auto& b : books) {
         b->print_info();
-        std::cout << "------------------" << std::endl;
     }
-    std::cout << "注册读者列表:" << std::endl;
+    std::cout << "\nreaders: " << std::endl;
     for (const auto& r : readers) {
         r->print_info();
-        std::cout << "------------------" << std::endl;
     }
+    // cmake .. -G "MinGW Makefiles" -DCMAKE_CXX_STANDARD=17
+    std::cout << "over\n";
 }

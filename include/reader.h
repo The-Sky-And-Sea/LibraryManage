@@ -16,11 +16,11 @@ public:
     reader(const std::string& s);
     ~reader();
     // 获取读者姓名
-    std::string get_name() const;
+    const std::string get_name() const;
     // 借阅书籍
-    bool borrow_book(book* b = nullptr);
+    bool borrow_book(book* b);
     // 归还书籍
-    bool return_book(book* b = nullptr);
+    void return_book(book* b);
     // 打印读者信息
     void print_info() const;
 };
