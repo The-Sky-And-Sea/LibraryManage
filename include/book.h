@@ -9,11 +9,9 @@ protected:
     std::string title;
     // 是否被借出
     bool is_borrowed = false;
-    // 书架和编号
-    std::string shelf_number;
 
 public:
-    book(std::string t, std::string shelf);
+    book(std::string t);
     ~book();
     // 获取书名
     std::string get_title() const;
@@ -24,6 +22,37 @@ public:
     // 获取书架和编号
     std::string get_shelf_number() const;
     // 打印书的信息
-    void print_info() const;
+    virtual void print_info() const = 0;
 };
 
+// 实体书
+class pyshical_book : public book{
+protected:
+    // 书架和编号
+    std::string shelf;
+    std::string number;
+public:
+    pyshical_book(std::string t, std::string s, std::string n);
+    ~pyshical_book();
+    // 获取书架和编号
+    std::string get_shelf_number() const;
+    // 获取书的类型
+    std::string get_type() const { return "Physical"; }
+    // 打印书的信息
+    void print_info() const override;
+};
+
+class ebook : public book {
+protected:
+    // 网址链接
+    std::string link;
+    // 内存大小
+    int size;
+public:
+    ebook(std::string t, std::string l, int s);
+    ~ebook();
+    // 获取书的类型
+    std::string get_type() const { return "E-book"; }
+    // 打印书的信息
+    void print_info() const override;
+};

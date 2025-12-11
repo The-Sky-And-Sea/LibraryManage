@@ -71,15 +71,15 @@ bool library::returnbook(const std::string& reader_name, const std::string& book
 }
 
 void library::print_info() const {
-    std::cout << "library name: " << library_name << std::endl << std::endl;
-    std::cout << "book list: " << std::endl;
+    std::cout << "====LIBRARY NAME====\n" << library_name << std::endl << std::endl;
+    std::cout << "====ALL BOOKS====" << std::endl;
     for (const auto& b : books) {
         b->print_info();
     }
-    std::cout << "\nreaders: " << std::endl;
+    std::cout << "\n====READERS====" << std::endl;
     for (const auto& r : readers) {
         r->print_info();
     }
     // cmake .. -G "MinGW Makefiles" -DCMAKE_CXX_STANDARD=17
-    std::cout << "over\n";
+    std::cout << "\nover\n";
 }

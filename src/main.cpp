@@ -9,11 +9,13 @@ int main() {
     library myLibrary("myLibrary");
 
     // 创建一些书籍
-    book* book1 = new book("C++ prime plus", "A1");
-    book* book2 = new book("Data Structure", "B2");
-    book* book3 = new book("Rust programming", "C3");
-    book* book4 = new book("C++ prime plus", "D4"); // 重复书名测试
-    book* book5 = new book("blender foundation", "E5");
+    book* book1 = new pyshical_book("C++ prime plus", "A1", "143");
+    book* book2 = new pyshical_book("Data Structure", "B2", "236");
+    book* book3 = new pyshical_book("Rust programming", "C3", "89");
+    book* book4 = new pyshical_book("C++ prime plus", "D4", "495"); // 重复书名测试
+    book* book5 = new pyshical_book("blender foundation", "E5", "152");
+    book* book6 = new ebook("Digital Design", "www.digitaldesign.com", 5);
+    book* book7 = new ebook("linux programming", "www.linux.com", 10);
 
     // 将书籍添加到图书馆
     myLibrary.add_book(book1);
@@ -21,6 +23,8 @@ int main() {
     myLibrary.add_book(book3);
     myLibrary.add_book(book4);
     myLibrary.add_book(book5);
+    myLibrary.add_book(book6);
+    myLibrary.add_book(book7);
 
     // 创建一些读者
     reader* reader1 = new reader("zhangsan");
@@ -34,9 +38,6 @@ int main() {
     myLibrary.borrowbook("zhangsan", "C++ prime plus");
     myLibrary.borrowbook("lisi", "Data Structure");
 
-    // 打印图书馆信息
-    myLibrary.print_info();
-
     // 让读者归还书籍
     myLibrary.returnbook("zhangsan", "C++ prime plus");
 
@@ -49,6 +50,8 @@ int main() {
     delete book3;
     delete book4;
     delete book5;
+    delete book6;
+    delete book7;
     delete reader1;
     delete reader2;
 
