@@ -37,6 +37,7 @@ int main() {
     // 让读者借阅书籍
     myLibrary.borrowbook("zhangsan", "C++ prime plus");
     myLibrary.borrowbook("lisi", "Data Structure");
+    myLibrary.borrowbook("zhangsan", "Digital Design");
 
     // 让读者归还书籍
     myLibrary.returnbook("zhangsan", "C++ prime plus");
@@ -50,5 +51,6 @@ int main() {
     // cmake .. -G "MinGW Makefiles" -DCMAKE_CXX_STANDARD=17
     // md还没整玩，高兴早了
     // 终于整完了，md实在太有操作太有实力太有生活了
+    
     return 0;
 }

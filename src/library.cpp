@@ -115,6 +115,7 @@ void library::save_to_file(const std::string& filename) {
 
     file << "\n# BORROWED BOOKS\n";
     for (const auto& r : readers) {
+        file << "111111\n";
         for (const auto& b : r->get_borrowed_books()) {
             file << r->get_name() <<"," << b->get_title() << "\n";
         }
@@ -189,6 +190,7 @@ bool library::returnbook(const std::string& reader_name, const std::string& book
     // 只有当读者和书籍都存在且书籍已被借出时，才能归还
     if (r && b && b->check_borrowed()) {
         b->set_borrowed(false);
+        r->return_book(b);
         return true;
         
     }
