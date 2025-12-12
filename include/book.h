@@ -19,10 +19,10 @@ public:
     bool check_borrowed() const;
     // 设置书的借出状态
     void set_borrowed(bool status);
-    // 获取书架和编号
-    std::string get_shelf_number() const;
     // 打印书的信息
     virtual void print_info() const = 0;
+    // 获取书的类型
+    virtual std::string get_type() const = 0;
 };
 
 // 实体书
@@ -34,8 +34,10 @@ protected:
 public:
     pyshical_book(std::string t, std::string s, std::string n);
     ~pyshical_book();
-    // 获取书架和编号
-    std::string get_shelf_number() const;
+    // 获取书架
+    std::string get_shelf() const;
+    // 获取编号
+    std::string get_number() const;
     // 获取书的类型
     std::string get_type() const { return "Physical"; }
     // 打印书的信息
@@ -53,6 +55,8 @@ public:
     ~ebook();
     // 获取书的类型
     std::string get_type() const { return "E-book"; }
+    std::string get_link() const;
+    int get_size() const;
     // 打印书的信息
     void print_info() const override;
 };

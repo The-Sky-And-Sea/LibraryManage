@@ -21,6 +21,8 @@ public:
     bool borrow_book(book* b);
     // 归还书籍
     void return_book(book* b);
+    // 获取借阅的书籍列表
+    std::vector<book*> get_borrowed_books() const;
     // 打印读者信息
     void print_info() const;
 };

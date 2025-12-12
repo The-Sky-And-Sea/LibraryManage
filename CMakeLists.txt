@@ -14,4 +14,7 @@ file(GLOB SOURCES "src/*.cpp")
 include_directories(include)
 
 # 添加可执行文件
-add_executable(preview ${SOURCES})
+add_executable(library_system ${SOURCES})
+
+# 可执行文件输出路径
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

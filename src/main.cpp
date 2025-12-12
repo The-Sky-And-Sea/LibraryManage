@@ -45,15 +45,10 @@ int main() {
     myLibrary.print_info();
 
     // 清理动态分配的内存
-    delete book1;
-    delete book2;
-    delete book3;
-    delete book4;
-    delete book5;
-    delete book6;
-    delete book7;
-    delete reader1;
-    delete reader2;
+    // myLibrary.clear_memory(); 析构函数自动调用
 
+    // cmake .. -G "MinGW Makefiles" -DCMAKE_CXX_STANDARD=17
+    // md还没整玩，高兴早了
+    // 终于整完了，md实在太有操作太有实力太有生活了
     return 0;
 }

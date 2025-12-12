@@ -12,8 +12,13 @@ protected:
     // 注册读者列表
     std::vector<reader*> readers;
 public:
-    library(std::string name);
+    library(const std::string name, const std::string& datafile = "info.txt");
     ~library();
+
+    // 从文件中读取书籍和读者信息
+    void load_from_file(const std::string& filename);
+    // 保存书籍和读者信息到文件
+    void save_to_file(const std::string& filename);
 
     // 添加书籍到馆藏
     void add_book(book* b);
@@ -31,4 +36,7 @@ public:
     bool returnbook(const std::string& reader_name, const std::string& book_title);
     // 打印图书馆信息
     void print_info() const;
+    // 程序结束时清理内存
+    void clear_memory();
+
 };

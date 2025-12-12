@@ -29,6 +29,10 @@ void reader::return_book(book* b) {
     }
 }
 
+std::vector<book*> reader::get_borrowed_books() const {
+    return borrowed_books;
+}
+
 void reader::print_info() const {
     std::cout << "reader's name: " << name << std::endl;
 }
