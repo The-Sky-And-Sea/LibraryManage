@@ -49,8 +49,8 @@ int main() {
     // myLibrary.clear_memory(); 析构函数自动调用
 
     // cmake .. -G "MinGW Makefiles" -DCMAKE_CXX_STANDARD=17
-    // md还没整玩，高兴早了
-    // 终于整完了，md实在太有操作太有实力太有生活了
     
+    // 终于整完了，md实在太有操作太有实力太有生活了
+    // md这回真整完了，终于解放了算是
     return 0;
 }

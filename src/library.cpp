@@ -115,7 +115,6 @@ void library::save_to_file(const std::string& filename) {
 
     file << "\n# BORROWED BOOKS\n";
     for (const auto& r : readers) {
-        file << "111111\n";
         for (const auto& b : r->get_borrowed_books()) {
             file << r->get_name() <<"," << b->get_title() << "\n";
         }
@@ -170,9 +169,10 @@ bool library::borrowbook(const std::string& reader_name, const std::string& book
     if (r && b) {
         if (!b->check_borrowed())
         {
+            // md这两行颠倒过来导致info.txt里借阅状态一直是未借出，太离谱了，bug找了好久，mdcpp太有操作了
+            r->borrow_book(b);
             // 将书籍状态设为已借出
             b->set_borrowed(true);
-            r->borrow_book(b);
             return true;
         }
         else {
@@ -189,8 +189,9 @@ bool library::returnbook(const std::string& reader_name, const std::string& book
     book* b = find_book(book_title);
     // 只有当读者和书籍都存在且书籍已被借出时，才能归还
     if (r && b && b->check_borrowed()) {
-        b->set_borrowed(false);
+        // 跟上面的borrowbook一样，这两行代码顺序也不能颠倒
         r->return_book(b);
+        b->set_borrowed(false);
         return true;
         
     }

@@ -1,0 +1,15 @@
+# BOOKs
+Physical,C++ prime plus,A1,143
+Physical,Data Structure,B2,236
+Physical,Rust programming,C3,89
+Physical,blender foundation,E5,152
+E-book,Digital Design,www.digitaldesign.com,5
+E-book,linux programming,www.linux.com,10
+
+# READERS
+zhangsan
+lisi
+
+# BORROWED BOOKS
+zhangsan,Digital Design
+lisi,Data Structure
